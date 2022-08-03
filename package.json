@@ -1,0 +1,23 @@
+{
+  "name": "@oliverbo/gg-common",
+  "version": "1.0.0",
+  "description": "Common functionality for glamglare site components",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliverbo/gg-common.git"
+  },
+  "keywords": [
+    "music",
+    "blog"
+  ],
+  "author": "Oliver Bouchard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oliverbo/gg-common/issues"
+  },
+  "homepage": "https://github.com/oliverbo/gg-common#readme"
+}
