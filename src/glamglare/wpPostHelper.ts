@@ -1,6 +1,6 @@
 import he from "he";
-import { Song } from '../model/Song';
-import { WpPost } from './WpPost';
+import { Song } from "src/model";
+import { WpPost } from "./WpPost";
 
 // Extracts Song information from title returns
 export function extractSong(post: WpPost): Song | undefined {
@@ -13,15 +13,15 @@ export function extractSong(post: WpPost): Song | undefined {
 
     // Remove old video tag if exists;
     let title = he.decode(data[3]);
-    if (title.endsWith(' (Video)')) {
+    if (title.endsWith(" (Video)")) {
         title = title.substring(0, title.length - 8);
     }
 
     return {
-        artist : {
+        artist: {
             name: he.decode(data[2]),
             _complete: false,
         },
-        title
+        title,
     };
 }
