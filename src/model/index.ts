@@ -41,6 +41,7 @@ interface Album {
     labelName?: string;
     type?: string;
     coverUrl?: string;
+    debutRecord?: boolean;
     description?: string;
     glamglareUrl?: string;
     coverageType?: string;
