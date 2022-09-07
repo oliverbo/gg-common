@@ -48,6 +48,7 @@ interface Album {
     favorite: boolean;
     bandcampUrl?: string;
     spotifyUrl?: string;
+    otherUrl?: string;
     appleMusicUrl?: string;
     linkUrl?: string; // deprecated
     releaseDate: Date;
