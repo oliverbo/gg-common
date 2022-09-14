@@ -1,6 +1,5 @@
 import he from "he";
-import { ImageInfo } from "../model/ImageInfo";
-import { Post } from "../model/Post";
+import { ImageInfo, Post } from "../model";
 import {
     loadPostById,
     loadPostsByCategories,
