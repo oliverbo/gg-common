@@ -84,4 +84,9 @@ interface Song {
     title: string;
 }
 
-export { Id, Album, Artist, ImageInfo, Song, Post };
+interface User {
+    name: string;
+    admin: boolean;
+}
+
+export { Id, Album, Artist, ImageInfo, Song, Post, User };
