@@ -1,16 +1,18 @@
-interface Id {
+interface UniqueObject {
     id?: string;
-    slug?: string;
 }
 
-interface Artist extends Id {
-    slug?: string; // TODO: will be changed to mandatory
+interface WebEntity extends UniqueObject {
+    slug?: string;
+    _complete?: boolean; // Has the record enough data for creating a page?
+}
+
+interface Artist extends WebEntity {
     name: string;
     appleMusicUrl?: string;
     bandcampUrl?: string;
     category?: string;
     city?: string;
-    _complete: boolean; // Has the record enough data for creating a page?
     country?: string;
     description?: string;
     facebookHandle?: string;
@@ -30,9 +32,7 @@ interface Artist extends Id {
     webUrl?: string;
 }
 
-interface Album {
-    id?: string;
-    slug?: string;
+interface Album extends WebEntity {
     name: string;
     artist: string;
     artistRef?: string;
@@ -60,8 +60,7 @@ interface ImageInfo {
     height: number;
 }
 
-interface Post {
-    id: string;
+interface Post extends UniqueObject {
     slug: string;
     title: string;
     link: string;
@@ -79,14 +78,14 @@ interface Post {
     song?: Song;
 }
 
-interface Song {
+interface Song extends WebEntity {
     artist: Artist;
     title: string;
 }
 
-interface User {
+interface User extends UniqueObject {
     name: string;
     admin: boolean;
 }
 
-export { Id, Album, Artist, ImageInfo, Song, Post, User };
+export { UniqueObject, WebEntity, Album, Artist, ImageInfo, Song, Post, User };
