@@ -68,11 +68,13 @@ interface Post extends UniqueObject {
     date: Date;
     excerpt: string;
     featuredImage: {
-        medium?: ImageInfo;
-        large?: ImageInfo;
-        thumbnail?: ImageInfo;
-        mediumLarge?: ImageInfo;
-        full?: ImageInfo;
+        medium: ImageInfo;
+        large: ImageInfo;
+        thumbnail: ImageInfo;
+        mediumLarge: ImageInfo;
+        full: ImageInfo;
+        squareSmall: ImageInfo;
+        squareMedium: ImageInfo;
     };
     categories?: number[];
     song?: Song;
