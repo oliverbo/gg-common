@@ -1,6 +1,5 @@
 import he from "he";
-import { imageCropUrl } from "../tools/wordpress";
-import { ImageInfo, Post } from "../model";
+import { Post } from "../model";
 import {
     loadPostById,
     loadPostsByCategories,
@@ -56,15 +55,7 @@ function extractDataFromWpPost(wpPost: WpPost): Post {
         content: wpPost.content,
         date: new Date(wpPost.date),
         excerpt: he.decode(wpPost.excerpt),
-        featuredImage: {
-            medium: imageInfo(wpPost, 900, 600),
-            large: imageInfo(wpPost, 2048, 1365),
-            thumbnail: imageInfo(wpPost, 50, 50),
-            mediumLarge: imageInfo(wpPost, 1500, 1000),
-            full: imageInfo(wpPost, 0, 0),
-            squareMedium: imageInfo(wpPost, 500, 500),
-            squareSmall: imageInfo(wpPost, 250, 250),
-        },
+        featuredImage: wpPost.featured_image,
         categories: wpPost.categories,
     };
 
@@ -74,12 +65,4 @@ function extractDataFromWpPost(wpPost: WpPost): Post {
     }
 
     return p;
-}
-
-function imageInfo(wpPost: WpPost, width: number, height: number): ImageInfo {
-    return {
-        url: imageCropUrl(wpPost.featured_image, width, height),
-        width: width,
-        height: height,
-    };
 }

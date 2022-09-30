@@ -54,12 +54,6 @@ interface Album extends WebEntity {
     releaseDate: Date;
 }
 
-interface ImageInfo {
-    url: string;
-    width: number;
-    height: number;
-}
-
 interface Post extends UniqueObject {
     slug: string;
     title: string;
@@ -67,15 +61,7 @@ interface Post extends UniqueObject {
     content: string;
     date: Date;
     excerpt: string;
-    featuredImage: {
-        medium: ImageInfo;
-        large: ImageInfo;
-        thumbnail: ImageInfo;
-        mediumLarge: ImageInfo;
-        full: ImageInfo;
-        squareSmall: ImageInfo;
-        squareMedium: ImageInfo;
-    };
+    featuredImage: string;
     categories?: number[];
     song?: Song;
 }
@@ -90,4 +76,4 @@ interface User extends UniqueObject {
     admin: boolean;
 }
 
-export { UniqueObject, WebEntity, Album, Artist, ImageInfo, Song, Post, User };
+export { UniqueObject, WebEntity, Album, Artist, Song, Post, User };
