@@ -51,11 +51,11 @@ function extractDataFromWpPost(wpPost: WpPost): Post {
         id: String(wpPost.id),
         slug: wpPost.slug,
         title: he.decode(wpPost.title),
-        link: wpPost.URL,
+        postUrl: wpPost.URL,
         content: wpPost.content,
-        date: new Date(wpPost.date),
+        postDate: new Date(wpPost.date),
         excerpt: he.decode(wpPost.excerpt),
-        featuredImage: wpPost.featured_image,
+        imageUrl: wpPost.featured_image,
         categories: wpPost.categories,
     };
 

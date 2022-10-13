@@ -18,10 +18,7 @@ export function extractSong(post: WpPost): Song | undefined {
     }
 
     return {
-        artist: {
-            name: he.decode(data[2]),
-            _complete: false,
-        },
+        artist: he.decode(data[2]),
         title,
     };
 }

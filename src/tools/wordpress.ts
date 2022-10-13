@@ -6,6 +6,10 @@ export function imageCropUrl(imgUrl: string, width = 0, height = 0) {
     const imgUrlPatternWithoutCrop =
         /^(https:\/\/wp\.glamglare\.com\/wp-content\/uploads\/[0-9]+\/[0-9]+\/[^\/]+)\.(jpg|png|jpeg)$/;
 
+    if (!imgUrl) {
+        return "undefined"; // Better than nothing
+    }
+
     let match = imgUrl.match(imgUrlPatternWithCrop);
     let fileNameExtension = "";
 
