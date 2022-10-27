@@ -1,5 +1,5 @@
 import he from "he";
-import { ImageInfo, Post } from "../model";
+import { Post } from "../model";
 import {
     loadPostById,
     loadPostsByCategories,
@@ -51,17 +51,11 @@ function extractDataFromWpPost(wpPost: WpPost): Post {
         id: String(wpPost.id),
         slug: wpPost.slug,
         title: he.decode(wpPost.title),
-        link: wpPost.URL,
+        postUrl: wpPost.URL,
         content: wpPost.content,
-        date: new Date(wpPost.date),
+        postDate: new Date(wpPost.date),
         excerpt: he.decode(wpPost.excerpt),
-        featuredImage: {
-            medium: imageInfo(wpPost, "medium"),
-            large: imageInfo(wpPost, "large"),
-            thumbnail: imageInfo(wpPost, "thumbnail"),
-            mediumLarge: imageInfo(wpPost, "medium_large"),
-            full: imageInfo(wpPost, "full"),
-        },
+        imageUrl: wpPost.featured_image,
         categories: wpPost.categories,
     };
 
@@ -71,12 +65,4 @@ function extractDataFromWpPost(wpPost: WpPost): Post {
     }
 
     return p;
-}
-
-function imageInfo(wpPost: WpPost, name: string): ImageInfo | undefined {
-    return {
-        url: wpPost.featured_image,
-        width: 0,
-        height: 0,
-    };
 }

@@ -1,5 +1,6 @@
 // export functionality
 export * as glamglareApi from "./glamglare/service";
+export * as wordpress from "./tools/wordpress";
 
 // export errors
 export * as NotFoundError from "./error/NotFoundError";
