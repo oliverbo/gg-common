@@ -8,14 +8,22 @@ interface WebEntity extends UniqueObject {
 }
 
 interface ReferenceUrlEntity extends WebEntity {
-    spotifyUrl?: string;
     appleMusicUrl?: string;
     bandcampUrl?: string;
+    otherUrl?: string;
     soundCloudUrl?: string;
+    spotifyUrl?: string;
     youTubeUrl?: string;
 }
 
-interface Artist extends WebEntity {
+interface SocialEntity extends ReferenceUrlEntity {
+    facebookHandle?: string;
+    instagramHandle?: string;
+    tiktokHandle?: string;
+    twitterHandle?: string;
+}
+
+interface Artist extends SocialEntity {
     name: string;
     appleMusicUrl?: string;
     bandcampUrl?: string;
@@ -23,24 +31,20 @@ interface Artist extends WebEntity {
     city?: string;
     country?: string;
     description?: string;
-    facebookHandle?: string;
     favorite?: boolean;
     genre?: string;
     glamglareUrl?: string;
     info?: string;
-    instagramHandle?: string;
     location?: string;
     members?: number;
     photoCredit?: string;
     photoUrl?: string;
     spotifyUrl?: string;
     status?: string;
-    tiktokHandle?: string;
-    twitterHandle?: string;
     webUrl?: string;
 }
 
-interface Album extends WebEntity {
+interface Album extends ReferenceUrlEntity {
     name: string;
     artist: string;
     artistRef?: string;
@@ -54,10 +58,6 @@ interface Album extends WebEntity {
     glamglareUrl?: string;
     coverageType?: string;
     favorite: boolean;
-    bandcampUrl?: string;
-    spotifyUrl?: string;
-    otherUrl?: string;
-    appleMusicUrl?: string;
     linkUrl?: string; // deprecated
     releaseDate: Date;
 }
@@ -102,4 +102,5 @@ export {
     Playlist,
     Post,
     User,
+    SocialEntity,
 };
