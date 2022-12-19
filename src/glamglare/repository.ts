@@ -39,8 +39,6 @@ export async function loadPostsByCategories(
     url += "category=" + categories.toString();
     url += "&number=" + pageLength;
 
-    console.log(url);
-
     return (await get(url)) as WpResponse;
 }
 

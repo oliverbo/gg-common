@@ -1,11 +1,10 @@
+export const imgUrlPatternWithCrop =
+    /^(https:\/\/wp\.glamglare\.com\/wp-content\/uploads\/[0-9]+\/[0-9]+\/[^\/]+)(-[0-9]+x[0-9]+)(?=.)\.(jpg|png|jpeg)(\?crop=1)?$/;
+export const imgUrlPatternWithoutCrop =
+    /^(https:\/\/wp\.glamglare\.com\/wp-content\/uploads\/[0-9]+\/[0-9]+\/[^\/]+)\.(jpg|png|jpeg)$/;
+
 // Modifies the image Url for server-side crop
 export function imageCropUrl(imgUrl: string, width = 0, height = 0) {
-    // Remove existing crop info in URL
-    const imgUrlPatternWithCrop =
-        /^(https:\/\/wp\.glamglare\.com\/wp-content\/uploads\/[0-9]+\/[0-9]+\/[^\/]+)(-[0-9]+x[0-9]+)(?=.)\.(jpg|png|jpeg)(\?crop=1)?$/;
-    const imgUrlPatternWithoutCrop =
-        /^(https:\/\/wp\.glamglare\.com\/wp-content\/uploads\/[0-9]+\/[0-9]+\/[^\/]+)\.(jpg|png|jpeg)$/;
-
     if (!imgUrl) {
         return "undefined"; // Better than nothing
     }
