@@ -1,5 +1,5 @@
 import he from "he";
-import { Song } from "src/model";
+import { Song, Source } from "../model";
 import { WpPost } from "./WpPost";
 
 // Extracts Song information from title returns
@@ -19,6 +19,8 @@ export function extractSong(post: WpPost): Song | undefined {
 
     return {
         artist: he.decode(data[2]),
+        _source: Source.wordpress,
+        category: "PICK",
         title,
     };
 }
