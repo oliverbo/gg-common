@@ -7,7 +7,7 @@ interface WebEntity extends UniqueObject {
     _complete?: boolean; // Has the record enough data for creating a page?
 }
 
-interface ReferenceUrlEntity extends WebEntity {
+interface ReferenceUrlEntity {
     appleMusicUrl?: string;
     bandcampUrl?: string;
     otherUrl?: string;
@@ -16,17 +16,20 @@ interface ReferenceUrlEntity extends WebEntity {
     youTubeUrl?: string;
 }
 
-interface SocialEntity extends ReferenceUrlEntity {
+interface SocialEntity {
     facebookHandle?: string;
     instagramHandle?: string;
     tiktokHandle?: string;
     twitterHandle?: string;
 }
 
-interface Artist extends SocialEntity {
+enum Source {
+    database = "DATABASE",
+    wordpress = "WORDPRESS",
+}
+
+interface Artist extends WebEntity, SocialEntity, ReferenceUrlEntity {
     name: string;
-    appleMusicUrl?: string;
-    bandcampUrl?: string;
     category?: string;
     city?: string;
     country?: string;
@@ -39,12 +42,11 @@ interface Artist extends SocialEntity {
     members?: number;
     photoCredit?: string;
     photoUrl?: string;
-    spotifyUrl?: string;
     status?: string;
     webUrl?: string;
 }
 
-interface Album extends ReferenceUrlEntity {
+interface Album extends WebEntity, ReferenceUrlEntity {
     name: string;
     artist: string;
     artistRef?: string;
@@ -71,17 +73,27 @@ interface Post extends WebEntity {
     imageUrl?: string;
     categories?: number[];
     song?: Song;
+    source?: Source;
 }
 
-interface Song extends ReferenceUrlEntity {
+interface Song extends WebEntity, ReferenceUrlEntity {
+    albumRef?: string;
+    albumInfo?: Album;
     artist: string;
     artistRef?: string;
     artistInfo?: Artist;
-    title: string;
+    category: string;
+    content?: string;
+    coverUrl?: string;
+    glamglareUrl?: string;
     isVideo?: boolean;
+    postDate?: Date;
+    releaseDate?: Date;
+    _source?: Source;
+    title: string;
 }
 
-interface Playlist extends ReferenceUrlEntity {
+interface Playlist extends WebEntity, ReferenceUrlEntity {
     name: string;
     description?: string;
     coverUrl?: string;
@@ -99,6 +111,7 @@ export {
     Album,
     Artist,
     Song,
+    Source,
     Playlist,
     Post,
     User,
