@@ -30,6 +30,7 @@ enum Source {
 
 interface Artist extends WebEntity, SocialEntity, ReferenceUrlEntity {
     name: string;
+    albums?: Album[];
     category?: string;
     city?: string;
     country?: string;
@@ -42,6 +43,7 @@ interface Artist extends WebEntity, SocialEntity, ReferenceUrlEntity {
     members?: number;
     photoCredit?: string;
     photoUrl?: string;
+    songs?: Song[];
     status?: string;
     webUrl?: string;
 }
