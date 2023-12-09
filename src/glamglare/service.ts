@@ -28,14 +28,16 @@ export async function searchPosts(searchString: string): Promise<Post[]> {
 export async function postsByCategories(
     categories: string[],
     pageLength = 10,
-    embed = true
+    embed = true,
+    pageNo = 1
 ): Promise<Post[]> {
     const posts: Post[] = [];
 
     const wpResponse = await loadPostsByCategories(
         embed,
         categories,
-        pageLength
+        pageLength,
+        pageNo
     );
     for (let w of wpResponse.posts) {
         const post = extractDataFromWpPost(w);

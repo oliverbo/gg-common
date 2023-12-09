@@ -1,6 +1,6 @@
 {
     "name": "@oliverbo/gg-common",
-    "version": "3.3.0",
+    "version": "3.4.0",
     "description": "Common functionality for glamglare site components",
     "main": "dist/index.js",
     "scripts": {
