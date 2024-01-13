@@ -32,12 +32,14 @@ export async function loadPostById(id: string): Promise<WpPost> {
 export async function loadPostsByCategories(
     embed: boolean,
     categories: string[],
-    pageLength: number
+    pageLength: number,
+    pageNo = 1
 ): Promise<WpResponse> {
     console.log(`Loading ${pageLength} posts for categories ${categories}...`);
     let url = "posts?";
     url += "category=" + categories.toString();
     url += "&number=" + pageLength;
+    url += "&page=" + pageNo;
 
     return (await get(url)) as WpResponse;
 }
