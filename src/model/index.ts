@@ -26,6 +26,7 @@ interface SocialEntity {
 enum Source {
     database = "DATABASE",
     wordpress = "WORDPRESS",
+    ghost = "GHOST",
 }
 
 interface Artist extends WebEntity, SocialEntity, ReferenceUrlEntity {
@@ -70,10 +71,12 @@ interface Post extends WebEntity {
     title: string;
     postUrl?: string;
     content?: string;
-    postDate: Date;
+    postDate?: Date;
     excerpt?: string;
     imageUrl?: string;
-    categories?: number[];
+    tags?: string[];
+    authors?: string[];
+    status?: string;
     song?: Song;
     source?: Source;
 }
