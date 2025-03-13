@@ -1,5 +1,7 @@
 interface UniqueObject {
     id?: string;
+    updateDate?: Date;
+    updateUserId?: string;
 }
 
 interface WebEntity extends UniqueObject {
@@ -69,6 +71,7 @@ interface Album extends WebEntity, ReferenceUrlEntity {
 
 interface Post extends WebEntity {
     title: string;
+    externalId?: string;
     postUrl?: string;
     content?: string;
     postDate?: Date;
