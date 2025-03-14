@@ -23,6 +23,7 @@ interface SocialEntity {
     instagramHandle?: string;
     tiktokHandle?: string;
     twitterHandle?: string;
+    blueskyHandle?: string;
 }
 
 enum Source {
