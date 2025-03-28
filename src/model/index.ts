@@ -79,6 +79,7 @@ interface Post extends WebEntity {
     excerpt?: string;
     imageUrl?: string;
     tags?: string[];
+    artistRef?: string;
     authors?: string[];
     status?: string;
     song?: Song;
