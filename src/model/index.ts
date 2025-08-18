@@ -26,6 +26,20 @@ interface SocialEntity {
     blueskyHandle?: string;
 }
 
+interface ExternalEntity extends WebEntity {
+    externalId?: string; // ID from external source, e.g. Ghost
+    postUrl?: string; // URL to the post in external source, e.g. Ghost
+    title: string;
+    content?: string;
+    postDate?: Date;
+    excerpt?: string;
+    imageUrl?: string;
+    tags?: string[];
+    authors?: string[];
+    status?: string;
+    source?: Source;
+}
+
 enum Source {
     database = "DATABASE",
     wordpress = "WORDPRESS",
@@ -52,7 +66,7 @@ interface Artist extends WebEntity, SocialEntity, ReferenceUrlEntity {
     webUrl?: string;
 }
 
-interface Album extends WebEntity, ReferenceUrlEntity {
+interface Album extends ReferenceUrlEntity, ExternalEntity {
     name: string;
     artist: string;
     artistRef?: string;
@@ -70,20 +84,8 @@ interface Album extends WebEntity, ReferenceUrlEntity {
     releaseDate: Date;
 }
 
-interface Post extends WebEntity {
-    title: string;
-    externalId?: string;
-    postUrl?: string;
-    content?: string;
-    postDate?: Date;
-    excerpt?: string;
-    imageUrl?: string;
-    tags?: string[];
+interface Post extends ExternalEntity {
     artistRef?: string;
-    authors?: string[];
-    status?: string;
-    song?: Song;
-    source?: Source;
 }
 
 interface Song extends WebEntity, ReferenceUrlEntity {
@@ -118,6 +120,8 @@ export {
     UniqueObject,
     WebEntity,
     ReferenceUrlEntity,
+    ExternalEntity,
+    SocialEntity,
     Album,
     Artist,
     Song,
@@ -125,5 +129,4 @@ export {
     Playlist,
     Post,
     User,
-    SocialEntity,
 };
