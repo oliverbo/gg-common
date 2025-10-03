@@ -48,6 +48,7 @@ enum Source {
 
 interface Artist extends WebEntity, SocialEntity, ReferenceUrlEntity {
     name: string;
+    nameIndex?: string; // Lower case version of name for case-insensitive search
     albums?: Album[];
     category?: string;
     city?: string;
