@@ -4,7 +4,8 @@ const extractArtist = (title: string): string | undefined => {
     throw new Error('Invalid title: Title must be a non-empty string.');
   }
 
-  const parts = title.split(' - ');
+  const normalizedTitle = title.includes(':') ? title.split(':').slice(1).join(':').trim() : title;
+  const parts = normalizedTitle.split(' - ');
   if (parts.length < 2) {
     return;
   }
