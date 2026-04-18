@@ -87,6 +87,7 @@ interface Album extends ReferenceUrlEntity, ExternalEntity {
 
 interface Post extends ExternalEntity {
     artistRef?: string;
+    song?: Song;
 }
 
 interface Song extends WebEntity, ReferenceUrlEntity {

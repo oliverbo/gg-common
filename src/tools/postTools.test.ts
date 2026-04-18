@@ -7,6 +7,12 @@ describe('extractArtist', () => {
     expect(result).toBe('Artist Name');
   });
 
+  it('should return the artist when the title has a legacy prefix', () => {
+    const title = 'SONG PICK: Artist Name - Song Title';
+    const result = extractArtist(title);
+    expect(result).toBe('Artist Name');
+  });
+
   it('should throw an error if the title is not a string', () => {
     expect(() => extractArtist(null as unknown as string)).toThrow(
       'Invalid title: Title must be a non-empty string.'
@@ -24,6 +30,12 @@ describe('extractArtist', () => {
 
   it('should handle extra spaces around the artist name', () => {
     const title = '  Artist Name  - Song Title';
+    const result = extractArtist(title);
+    expect(result).toBe('Artist Name');
+  });
+
+  it('should handle extra spaces around a legacy prefix title', () => {
+    const title = 'SONG PICK:   Artist Name  - Song Title';
     const result = extractArtist(title);
     expect(result).toBe('Artist Name');
   });
