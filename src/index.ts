@@ -1,9 +1,19 @@
-// export functionality
-export * as wordpress from "./tools/wordpress";
-
-// export errors
-export * as NotFoundError from "./error/NotFoundError";
-export * as ApiError from "./error/NotFoundError";
-
-// Model interfaces
-export * as model from "./model";
+export { extractArtist } from "./tools/postTools";
+export { Source } from "./model";
+export type {
+    Album,
+    AlbumDetails,
+    Artist,
+    ArtistDetails,
+    ExternalEntity,
+    Playlist,
+    Post,
+    PostDetails,
+    ReferenceUrlEntity,
+    SocialEntity,
+    Song,
+    SongDetails,
+    UniqueObject,
+    User,
+    WebEntity,
+} from "./model";
