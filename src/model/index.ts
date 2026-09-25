@@ -8,3 +8,8 @@ export type { Song, SongDetails } from "./song";
 export type { Playlist } from "./playlist";
 export type { Post, PostDetails } from "./post";
 export type { User } from "./user";
+export type {
+    StreamingEntityType,
+    StreamingServiceId,
+    StreamingSearchCandidate,
+} from "./streamingSearch";
